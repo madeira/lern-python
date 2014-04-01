@@ -1,8 +1,8 @@
 __author__ = 'madeira'
 def decode(code):
-    decodeString = ""
-    string = ""
-    flag = False
+    decode_string = ""
+    previous_char = "" 
+    curr_char_not_added = False
     for i in code:
         if string == "":
             string += i
@@ -12,12 +12,15 @@ def decode(code):
                     decodeString += i
                     string = i
                     flag = False
+                else:
+                    #MAKE SOME ERROR
             elif i == "#":
                 if flag:
                     decodeString += decodeString[-1]
                     string = i
                     flag = False
-            elif string == decodeString[-1]:
+            elif string == decodeString[-1]: # this if should be handled by flag
+                                             # there some extra logic
                 if flag:
                     decodeString += i
                     flag = False
