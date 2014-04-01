@@ -1,0 +1,13 @@
+__author__ = 'madeira'
+def iter_lines(fd):
+    # iter_lines(fd) получает имя файла итерирует по строкам. Для чтения можно использовать только fd.read(1)
+    ch = fd.read(1)
+    res = ""
+    while ch !="":
+        if ch == '\n':
+            yield res
+            res = ""
+        else:
+            res += ch
+        ch = fd.read(1)
+    yield res
